@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type='text/javascript'>
+      google.charts.load('current', {'packages':['annotationchart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+        data.addColumn('number', '타석수');
+        data.addColumn('string', '리그명');
+//        data.addColumn('string', 'Kepler text');
+//        data.addColumn('number', 'Gliese 163 mission');
+//        data.addColumn('string', 'Gliese title');
+//        data.addColumn('string', 'Gliese text');
+        data.addRows([
+            ['210307', 14, '동산리그-산타즈'],
+			['210321', 30, '동산리그-무한패밀리'],
+			['210404', 55, '동산리그-히로인즈'],
+			['210411', 77, '동산리그-오르카'],
+			['210502', 104, '동산리그-해머스스톰'],
+			['210523', 124, 'WBAK리그-골든폭스'],
+			['210530', 142, '은평리그-빅사이팅'],
+			['210605', 157, 'SBO리그-퀄리티스타트'],
+			['210606', 175, '동산리그-레이커스'],
+			['210613', 194, 'WBAK리그-블랙펄스'],
+			['210620', 213, '은평리그-빅사이팅'],
+			['210627', 231, 'WBAK리그-이화플레이걸스'],
+			['210703', 252, '울진대회-아레스'],
+			['210704', 269, '울진대회-해머스스톰']
+        ]);
+
+        var chart = new google.visualization.AnnotationChart(document.getElementById('chart_div'));
+
+        var options = {
+          displayAnnotations: true
+        };
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id='chart_div' style='width: 900px; height: 600px;'></div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+        data.addColumn('number', '타석수');
+        data.addColumn({type:'string', role:'annotation'});
+        data.addColumn('number', '안타수');
+        data.addColumn({type:'string', role:'annotation'});
+        
+        data.addRows([
+					['0307',14, null,2, null],
+					['0321',30, null,9, null],
+					['0404',55, null,17,'10: 히로인즈 2 최진' ],
+					['0411',77, null,28,'20: 오르카 2 박연희' ],
+					['0502',104, null,38,'30: 해머스스톰 1 권문진' ],
+					['0523',124, null,43,'40: 골든폭스 2 최인정' ],
+					['0530',142, null,48, null],
+					['0605',157, null,54,'50: 퀄리티스타트 3 김정원' ],
+					['0606',175, null,60,'60: 레이커스 3 최인정' ],
+					['0613',194, null,67, null],
+					['0620',213, null,72,'70: 빅사이팅 5 양성웅' ],
+					['0627',231, null,82,'80: 이화플레이걸스 1 최진' ],
+					['0703',252, null,91,'90: 아레스 5 박연희' ],
+					['0704',269, null,96, null]
+        ]);
+
+        // Set chart options
+        var options = {'title':'2021년 플레이볼 누적 타석수 안타 현황',
+                       'width':1200,
+                       'height':1500,
+                       'pointSize':10};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
